@@ -1,72 +1,48 @@
-import DashboardLayout from '../layout/DashboardLayout.vue'
+import DashboardLayout from "../layout/DashboardLayout.vue";
 // GeneralViews
-import NotFound from '../pages/NotFoundPage.vue'
+import NotFound from "../pages/NotFoundPage.vue";
 
 // Admin pages
-import Overview from 'src/pages/Overview.vue'
-import UserProfile from 'src/pages/UserProfile.vue'
-import TableList from 'src/pages/TableList.vue'
-import Typography from 'src/pages/Typography.vue'
-import Icons from 'src/pages/Icons.vue'
-import Maps from 'src/pages/Maps.vue'
-import Notifications from 'src/pages/Notifications.vue'
-import Upgrade from 'src/pages/Upgrade.vue'
-
+import Overview from "src/pages/Overview.vue";
+import UserProfile from "src/pages/UserProfile.vue";
+import TableList from "src/pages/TableList.vue";
+import Typography from "src/pages/Typography.vue";
+import Icons from "src/pages/Icons.vue";
+import Maps from "src/pages/Maps.vue";
+import Notifications from "src/pages/Notifications.vue";
+import Upgrade from "src/pages/Upgrade.vue";
+import ListarComponente from "src/pages/Componentes/ListarComponente.vue";
+import CadastrarComponente from "src/pages/Componentes/CadastrarComponente.vue";
 const routes = [
   {
-    path: '/',
+    path: "/",
     component: DashboardLayout,
-    redirect: '/admin/overview'
-  },
-  {
-    path: '/admin',
-    component: DashboardLayout,
-    redirect: '/admin/overview',
+    redirect: "/componentes",
     children: [
       {
-        path: 'overview',
-        name: 'Overview',
-        component: Overview
+        path: "componentes",
+        name: "Componentes",
+        component: ListarComponente
       },
       {
-        path: 'user',
-        name: 'User',
-        component: UserProfile
+        path: "componentes/cadastrar",
+        name: "Adicionar",
+        component: CadastrarComponente
       },
       {
-        path: 'table-list',
-        name: 'Table List',
-        component: TableList
+        path: "componentes/alterar/:id",
+        name: "Editar",
+        component: CadastrarComponente
       },
       {
-        path: 'typography',
-        name: 'Typography',
-        component: Typography
-      },
-      {
-        path: 'icons',
-        name: 'Icons',
-        component: Icons
-      },
-      {
-        path: 'maps',
-        name: 'Maps',
-        component: Maps
-      },
-      {
-        path: 'notifications',
-        name: 'Notifications',
-        component: Notifications
-      },
-      {
-        path: 'upgrade',
-        name: 'Upgrade to PRO',
-        component: Upgrade
+        path: "componentes/alterar",
+        component: CadastrarComponente,
+        redirect: "componentes/cadastrar"
       }
     ]
   },
-  { path: '*', component: NotFound }
-]
+  { path: "*", component: NotFound }
+];
 
 /**
  * Asynchronously load view (Webpack Lazy loading compatible)
@@ -77,4 +53,4 @@ function view(name) {
    return res;
 };**/
 
-export default routes
+export default routes;
