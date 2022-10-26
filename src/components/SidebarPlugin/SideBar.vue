@@ -7,7 +7,7 @@
       <div class="logo">
         <a href="#" class="simple-text logo__container">
             <div class="logo-img">
-                <img src="img/vue-logo.png" alt="">
+                <img src="img/air-control.jpeg" alt="">
             </div>
           {{title}}
         </a>
@@ -41,10 +41,10 @@
       SidebarLink
     },
     props: {
-      title: {
-        type: String,
-        default: 'Vue LBD'
-      },
+      // title: {
+      //   type: String,
+      //   default: 'Vue LBD'
+      // },
       backgroundColor: {
         type: String,
         default: 'black',
