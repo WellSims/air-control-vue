@@ -4,7 +4,7 @@ import { BTable } from "bootstrap-vue";
 import Componente from "../Componentes/model/Componente";
 import { BButton } from "bootstrap-vue";
 const componenteColumns = [
-  { key: "id", label: "IDENTIFICADOR" },
+  { key: "id", label: "ID" },
   { key: "nome", label: "Nome" },
   { key: "status", label: "Status" },
   { key: "acoes", label: "Ações" }
@@ -38,11 +38,18 @@ export default {
         let indice = this.componente.data.indexOf(componente);
         this.componente.data.splice(indice, 1);
       });
-    }
+    },
+
+    onFiltered(filteredItems) {
+      // Trigger pagination to update the number of buttons/pages due to filtering
+      this.totalRows = filteredItems.length;
+      this.currentPage = 1;
+    },
   },
 
   data() {
     return {
+      currentPage: 1,
       componente: {
         columns: [...componenteColumns],
         data: [...componenteData]

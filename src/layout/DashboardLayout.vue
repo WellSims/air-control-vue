@@ -1,8 +1,9 @@
 <template>
   <div class="wrapper">
+    <menu-lateral></menu-lateral>
     <div class="main-panel">
       <top-navbar></top-navbar>
-      <menu-lateral></menu-lateral>
+
       <dashboard-content @click="toggleSidebar"> </dashboard-content>
 
       <content-footer></content-footer>

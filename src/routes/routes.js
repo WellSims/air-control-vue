@@ -13,6 +13,9 @@ import Notifications from "src/pages/Notifications.vue";
 import Upgrade from "src/pages/Upgrade.vue";
 import ListarComponente from "src/pages/Componentes/ListarComponente.vue";
 import CadastrarComponente from "src/pages/Componentes/CadastrarComponente.vue";
+import ListarEquipamento from "src/pages/Equipamentos/ListarEquipamento.vue"
+import CadastrarEquipamento from "src/pages/Equipamentos/CadastrarEquipamento.vue"
+
 const routes = [
   {
     path: "/",
@@ -26,19 +29,39 @@ const routes = [
       },
       {
         path: "componentes/cadastrar",
-        name: "Adicionar",
+        name: "AdicionarComponente",
         component: CadastrarComponente
       },
       {
         path: "componentes/alterar/:id",
-        name: "Editar",
+        name: "EditarComponente",
         component: CadastrarComponente
       },
       {
         path: "componentes/alterar",
         component: CadastrarComponente,
         redirect: "componentes/cadastrar"
-      }
+      },
+      {
+        path: "equipamentos",
+        component: ListarEquipamento,
+        name: "Equipamentos"
+      },
+      {
+        path: "equipamentos/cadastrar",
+        name: "AdicionarEquipamento",
+        component: CadastrarEquipamento,
+      },
+      {
+        path: "equipamentos/alterar/:id",
+        name: "EditarEquipamento",
+        component: CadastrarEquipamento,
+      },
+      {
+        path: "equipamentos/alterar",
+        component: CadastrarComponente,
+        redirect: "equipamentos/cadastrar"
+      },
     ]
   },
   { path: "*", component: NotFound }

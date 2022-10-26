@@ -7,8 +7,8 @@
             class="strpied-tabled-with-hover"
             body-classes="table-full-width table-responsive"
           >
-            <h4 slot="header" class="card-title">Componentes</h4>
-            <router-link to="/componentes/cadastrar">
+            <h4 slot="header" class="card-title">Equipamentos</h4>
+            <router-link to="/equipamentos/cadastrar">
               <button class="btn btn-primary btn-fill float-right">
                 Adicionar
               </button>
@@ -19,14 +19,14 @@
                 :per-page="9"
                 hover
                 striped
-                :items="componente.data"
-                :fields="componente.columns"
+                :items="equipamentos.data"
+                :fields="equipamentos.columns"
                 responsive:true
                 @filtered="onFiltered"
               >
                 <template #cell(acoes)="row">
                   <router-link
-                    :to="{ name: 'EditarComponente', params: { id: row.item.id } }"
+                    :to="{ name: 'EditarEquipamento', params: { id: row.item.id } }"
                   >
                     <b-button
                       size="sm"
@@ -49,23 +49,21 @@
                 pills
                 align="center"
                 v-model="currentPage"
-                :total-rows="this.componente.data.length"
+                :total-rows="this.equipamentos.data.length"
                 :per-page="10"
                 class="my-0"
               ></b-pagination>
             </div>
-          </card>
+            </card
+          >
         </div>
       </div>
     </div>
   </div>
 </template>
-
 <script>
-import ListarComponente from "./ListarComponente";
+import ListarEquipamento from "./ListarEquipamento";
 export default {
-  ...ListarComponente
+  ...ListarEquipamento
 };
 </script>
-
-<style></style>

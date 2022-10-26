@@ -7,40 +7,42 @@
             <h4 slot="header" v-if="this.$route.params.id" class="card-title">
               Editar
             </h4>
-            <h4 slot="header" v-else class="card-title">Cadastrar</h4>
-            <form @submit.prevent="adicionar(componente)">
+            <h4 slot="header" v-else class="card-title">
+              Cadastrar
+            </h4>
+            <form @submit.prevent="adicionar(equipamento)">
               <div class="row">
                 <div class="col-md-6">
                   <label for="nome">Nome </label>
                   <input
-                    placeholder="Digite um nome para o componente"
+                    placeholder="Digite um nome para o equipamento"
                     required
                     class="form-control"
                     name="nome"
                     id="nome"
                     autocomplete="off"
-                    v-model="componente.nome"
+                    v-model="equipamento.nome"
                   />
                 </div>
               </div>
               <div class="row">
                 <div class="col-md-3">
-                  <label for="status">Status </label>
-                  <b-form-select required v-model="componente.status">
+                  <label for="status">Componente </label>
+                  <b-form-select required v-model="equipamento.componente.id">
                     <b-form-select-option disabled value=""
-                      >Selecione um status:</b-form-select-option
+                      >Selecione um Componente:</b-form-select-option
                     >
-                    <b-form-select-option value="LIGADO"
-                      >LIGADO</b-form-select-option
-                    >
-                    <b-form-select-option value="DESLIGADO"
-                      >DESLIGADO</b-form-select-option
+                    <b-form-select-option
+                      v-for="componente in componentes"
+                      :key="componente.id"
+                      :value="componente.id"
+                      >{{ componente.nome }}</b-form-select-option
                     >
                   </b-form-select>
                 </div>
               </div>
 
-              <router-link to="/componentes">
+              <router-link to="/equipamentos">
                 <button
                   class="btn btn-secondary btn-fill float-left"
                   style="margin-top:10px"
@@ -62,13 +64,11 @@
     </div>
   </div>
 </template>
-
 <script>
-import CadastrarComponente from "./CadastrarComponente";
+import CadastrarEquipamento from "./CadastrarEquipamento";
 
 export default {
-  ...CadastrarComponente
+  ...CadastrarEquipamento
 };
 </script>
-
 <style></style>

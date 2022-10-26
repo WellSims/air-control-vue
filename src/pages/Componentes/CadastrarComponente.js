@@ -9,15 +9,25 @@ export default {
     BFormInput
   },
 
+  created() {
+    if (this.id) {
+      this.obter(this.id);
+    }
+  },
+
   methods: {
     ...mapActions("ComponenteService", ["ActionAdicionarComponente"]),
     adicionar(componente) {
       if (this.id) {
         this.atualizar();
+        alert("Componente atualizado com sucesso!");
+        this.$router.push({ name: "Componentes" });
       } else {
-        return this.ActionAdicionarComponente(componente).then(res =>
-          console.log(res)
-        );
+        return this.ActionAdicionarComponente(componente).then(res => {
+          console.log(res);
+          alert("Componente cadastrado com sucesso!");
+          this.$router.push({ name: "Componentes" });
+        });
       }
     },
 
@@ -37,12 +47,6 @@ export default {
       return this.ActionAtualizarComponente(payload).then(res =>
         console.log(res.data)
       );
-    }
-  },
-
-  created() {
-    if (this.id) {
-      this.obter(this.id);
     }
   },
 
