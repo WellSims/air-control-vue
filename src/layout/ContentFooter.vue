@@ -9,7 +9,7 @@
         </ul>
       </nav> -->
       <div class="copyright text-center">
-        AirControl
+        AirControl System
       </div>
     </div>
   </footer>

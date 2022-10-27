@@ -41,10 +41,10 @@
       SidebarLink
     },
     props: {
-      // title: {
-      //   type: String,
-      //   default: 'Vue LBD'
-      // },
+      title: {
+        type: String,
+        default: 'AirControl'
+      },
       backgroundColor: {
         type: String,
         default: 'black',
@@ -55,7 +55,7 @@
       },
       backgroundImage: {
         type: String,
-        default: 'img/sidebar-5.jpg'
+        default: 'img/sidebar-6.jpg'
       },
       activeColor: {
         type: String,
