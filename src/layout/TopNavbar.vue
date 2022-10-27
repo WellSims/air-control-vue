@@ -1,15 +1,16 @@
 <template>
   <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
-      <a 
-       href="#">Dashboard</a>
-      <button type="button"
-              class="navbar-toggler navbar-toggler-right"
-              :class="{toggled: $sidebar.showSidebar}"
-              aria-controls="navigation-index"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-              @click="toggleSidebar">
+      <a class="route-name" href="#">{{ routeName }}</a>
+      <button
+        type="button"
+        class="navbar-toggler navbar-toggler-right"
+        :class="{ toggled: $sidebar.showSidebar }"
+        aria-controls="navigation-index"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+        @click="toggleSidebar"
+      >
         <span class="navbar-toggler-bar burger-lines"></span>
         <span class="navbar-toggler-bar burger-lines"></span>
         <span class="navbar-toggler-bar burger-lines"></span>
@@ -33,7 +34,6 @@
             <a class="dropdown-item" href="#">Notification 4</a>
             <a class="dropdown-item" href="#">Another notification</a>
           </base-dropdown> -->
-         
         </ul>
         <ul class="navbar-nav ml-auto">
           <!-- <li class="nav-item">
@@ -41,64 +41,74 @@
               Account
             </a>
           </li> -->
-          <base-dropdown title="Dropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something</a>
+          <!-- <base-dropdown title="Administrador">
+            <a class="dropdown-item" href="#">Editar perfil</a>
+            <a class="dropdown-item" href="#">Configurações</a>
+            <a class="dropdown-item" href="#">Sair</a>
             <a class="dropdown-item" href="#">Another action</a>
             <a class="dropdown-item" href="#">Something</a>
             <div class="divider"></div>
             <a class="dropdown-item" href="#">Separated link</a>
-          </base-dropdown>
+          </base-dropdown> -->
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nc-icon nc-zoom-split"></i>
               <span class="d-lg-block">&nbsp;Pesquisar</span>
             </a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a href="#" class="nav-link">
               Log out
             </a>
-          </li>
+          </li> -->
+          <base-dropdown title="Administrador">
+            <a class="dropdown-item" href="#">Editar perfil</a>
+            <a class="dropdown-item" href="#">Configurações</a>
+            <a class="dropdown-item" href="#">Sair</a>
+            <!-- <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something</a>
+            <div class="divider"></div>
+            <a class="dropdown-item" href="#">Separated link</a> -->
+          </base-dropdown>
         </ul>
       </div>
     </div>
   </nav>
 </template>
 <script>
-  export default {
-    computed: {
-      routeName () {
-        const {name} = this.$route
-        return this.capitalizeFirstLetter(name)
-      }
+export default {
+  computed: {
+    routeName() {
+      const { name } = this.$route;
+      return this.capitalizeFirstLetter(name);
+    }
+  },
+  data() {
+    return {
+      activeNotifications: false
+    };
+  },
+  methods: {
+    capitalizeFirstLetter(string) {
+      return string.charAt(0).toUpperCase() + string.slice(1);
     },
-    data () {
-      return {
-        activeNotifications: false
-      }
+    toggleNotificationDropDown() {
+      this.activeNotifications = !this.activeNotifications;
     },
-    methods: {
-      capitalizeFirstLetter (string) {
-        return string.charAt(0).toUpperCase() + string.slice(1)
-      },
-      toggleNotificationDropDown () {
-        this.activeNotifications = !this.activeNotifications
-      },
-      closeDropDown () {
-        this.activeNotifications = false
-      },
-      toggleSidebar () {
-        this.$sidebar.displaySidebar(!this.$sidebar.showSidebar)
-      },
-      hideSidebar () {
-        this.$sidebar.displaySidebar(false)
-      }
+    closeDropDown() {
+      this.activeNotifications = false;
+    },
+    toggleSidebar() {
+      this.$sidebar.displaySidebar(!this.$sidebar.showSidebar);
+    },
+    hideSidebar() {
+      this.$sidebar.displaySidebar(false);
     }
   }
-
+};
 </script>
 <style>
-
+.route-name {
+  font-size: 20px;
+}
 </style>

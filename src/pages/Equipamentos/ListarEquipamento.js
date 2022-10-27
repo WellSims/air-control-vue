@@ -8,8 +8,8 @@ const equipamentoColumns = [
   { key: "id", label: "ID" },
   { key: "nome", label: "Nome" },
   { key: "componente.id", label: "ID do Componente" },
-  { key: "componente.nome", label: "Nome do Componente" },
-  { key: "acoes", label: "Ações" }
+  { key: "horarios", label: "Agenda" },
+  { key: "acoes", label: "Ações" },
 ];
 
 const equipamentoData = [];

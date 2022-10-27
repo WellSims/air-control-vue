@@ -26,23 +26,27 @@
               >
                 <template #cell(acoes)="row">
                   <router-link
-                    :to="{ name: 'EditarComponente', params: { id: row.item.id } }"
+                    :to="{
+                      name: 'EditarComponente',
+                      params: { id: row.item.id }
+                    }"
                   >
                     <b-button
+                      title="Editar"
                       size="sm"
                       :name="row"
                       class="btn btn-primary btn-fill"
                       style="margin-right:5px;"
-                      >EDITAR</b-button
-                    ></router-link
-                  >
+                      ><b-icon icon="pencil-square"></b-icon></b-button
+                  ></router-link>
                   <b-button
+                    title="Remover"
                     size="sm"
                     :name="row"
                     class="btn btn-danger btn-fill"
                     @click="remover(row.item)"
-                    >REMOVER</b-button
-                  >
+                    ><b-icon icon="trash-fill"></b-icon
+                  ></b-button>
                 </template>
               </b-table>
               <b-pagination
