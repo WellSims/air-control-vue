@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
-      <a class="route-name" href="#">{{ routeName }}</a>
+      <a class="route-name">{{ routeName }}</a>
       <button
         type="button"
         class="navbar-toggler navbar-toggler-right"
@@ -61,7 +61,7 @@
               Log out
             </a>
           </li> -->
-          <base-dropdown title="Administrador">
+          <base-dropdown title="Administrador" icon="nc-icon nc-single-02">
             <a class="dropdown-item" href="#">Editar perfil</a>
             <a class="dropdown-item" href="#">Configurações</a>
             <a class="dropdown-item" href="#">Sair</a>
@@ -110,5 +110,7 @@ export default {
 <style>
 .route-name {
   font-size: 20px;
+  text-decoration: none;
+  color: #808080;
 }
 </style>

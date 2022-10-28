@@ -5,7 +5,7 @@
         <div class="col-12">
           <card>
             <h4 slot="header" v-if="this.$route.params.id" class="card-title">
-              Editar
+              Alterar
             </h4>
             <h4 slot="header" v-else class="card-title">
               Cadastrar

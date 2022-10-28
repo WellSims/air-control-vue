@@ -10,7 +10,7 @@
             <h4 slot="header" class="card-title">Componentes</h4>
             <router-link to="/componentes/cadastrar">
               <button class="btn btn-primary btn-fill float-right">
-                Adicionar
+                Cadastrar
               </button>
             </router-link>
             <div>
@@ -27,7 +27,7 @@
                 <template #cell(acoes)="row">
                   <router-link
                     :to="{
-                      name: 'EditarComponente',
+                      name: 'Componentes > Alterar',
                       params: { id: row.item.id }
                     }"
                   >

@@ -9,6 +9,10 @@
       <i class="nc-icon nc-preferences-circle-rotate"></i>
       <p>Equipamentos</p>
     </sidebar-link>
+    <sidebar-link to="/localizacao">
+      <i class="nc-icon  nc-pin-3"></i>
+      <p>Localização</p>
+    </sidebar-link>
   </side-bar>
 </template>
 <style lang="scss"></style>

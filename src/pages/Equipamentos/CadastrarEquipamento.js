@@ -27,7 +27,7 @@ export default {
         return this.ActionAdicionarEquipamento(equipamento).then(res => {
           console.log(res);
           alert("Equipamento adicionaro com sucesso!");
-          this.$router.push({ name: "Equipamentos" });
+          // this.$router.push({ name: "Equipamentos" });
         });
       }
     },

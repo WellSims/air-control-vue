@@ -29,12 +29,12 @@ const routes = [
       },
       {
         path: "componentes/cadastrar",
-        name: "AdicionarComponente",
+        name: "Componentes > Cadastrar",
         component: CadastrarComponente
       },
       {
         path: "componentes/alterar/:id",
-        name: "EditarComponente",
+        name: "Componentes > Alterar",
         component: CadastrarComponente
       },
       {
@@ -49,12 +49,12 @@ const routes = [
       },
       {
         path: "equipamentos/cadastrar",
-        name: "AdicionarEquipamento",
+        name: "Equipamentos > Cadastrar",
         component: CadastrarEquipamento,
       },
       {
         path: "equipamentos/alterar/:id",
-        name: "EditarEquipamento",
+        name: "Equipamentos > Alterar",
         component: CadastrarEquipamento,
       },
       {

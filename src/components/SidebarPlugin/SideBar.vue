@@ -5,11 +5,10 @@
        :data-image="backgroundImage">
     <div class="sidebar-wrapper">
       <div class="logo">
-        <a href="#" class="simple-text logo__container">
+        <a class="simple-text logo__container">
             <div class="logo-img">
-                <img src="img/air-control.jpeg" alt="">
+                <img src="img/air-control.png" alt="">
             </div>
-          {{title}}
         </a>
       </div>
 
