@@ -50,12 +50,12 @@
             <div class="divider"></div>
             <a class="dropdown-item" href="#">Separated link</a>
           </base-dropdown> -->
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nc-icon nc-zoom-split"></i>
               <span class="d-lg-block">&nbsp;Pesquisar</span>
             </a>
-          </li>
+          </li> -->
           <!-- <li class="nav-item">
             <a href="#" class="nav-link">
               Log out

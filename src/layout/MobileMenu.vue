@@ -12,16 +12,16 @@
       <a class="dropdown-item" href="#">Notification 4</a>
       <a class="dropdown-item" href="#">Another notification</a>
     </base-dropdown> -->
-    <li class="nav-item">
+    <!-- <li class="nav-item">
       <a href="#" class="nav-link">
         <i class="nc-icon nc-zoom-split hidden-lg-up"></i>
         <span class="d-lg-none">Pesquisar</span>
       </a>
-    </li>
-    <base-dropdown title="Administrador">
-    <a class="dropdown-item" href="#">Editar perfil</a>
-            <a class="dropdown-item" href="#">Configurações</a>
-            <a class="dropdown-item" href="#">Sair</a>
+    </li> -->
+    <base-dropdown title="Administrador" icon="nc-icon nc-single-02">
+      <a class="dropdown-item" href="#">Editar perfil</a>
+      <a class="dropdown-item" href="#">Configurações</a>
+      <a class="dropdown-item" href="#">Sair</a>
       <!-- <a class="dropdown-item" href="#">Something else here</a>
       <div class="divider"></div>
       <a class="dropdown-item" href="#">Separated link</a> -->
@@ -35,9 +35,8 @@
   </ul>
 </template>
 <script>
-  export default {
-    name: 'mobile-menu'
-  }
+export default {
+  name: "mobile-menu"
+};
 </script>
-<style>
-</style>
+<style></style>

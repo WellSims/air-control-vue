@@ -7,7 +7,9 @@ import { BButton } from "bootstrap-vue";
 const equipamentoColumns = [
   { key: "id", label: "ID" },
   { key: "nome", label: "Nome" },
-  { key: "componente.id", label: "ID do Componente" },
+  { key: "componente.id", label: "ID Componente" },
+  { key: "componente.localizacao.sala", label: "Sala" },
+  { key: "componente.localizacao.predio", label: "Prédio" },
   { key: "horarios", label: "Agenda" },
   { key: "acoes", label: "Ações" },
 ];

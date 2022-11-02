@@ -11,10 +11,15 @@ import Icons from "src/pages/Icons.vue";
 import Maps from "src/pages/Maps.vue";
 import Notifications from "src/pages/Notifications.vue";
 import Upgrade from "src/pages/Upgrade.vue";
+
 import ListarComponente from "src/pages/Componentes/ListarComponente.vue";
 import CadastrarComponente from "src/pages/Componentes/CadastrarComponente.vue";
-import ListarEquipamento from "src/pages/Equipamentos/ListarEquipamento.vue"
-import CadastrarEquipamento from "src/pages/Equipamentos/CadastrarEquipamento.vue"
+
+import ListarEquipamento from "src/pages/Equipamentos/ListarEquipamento.vue";
+import CadastrarEquipamento from "src/pages/Equipamentos/CadastrarEquipamento.vue";
+
+import ListarLocalizacao from "src/pages/Localizacoes/ListarLocalizacao.vue";
+import CadastrarLocalizacao from "src/pages/Localizacoes/CadastrarLocalizacao.vue";
 
 const routes = [
   {
@@ -50,18 +55,38 @@ const routes = [
       {
         path: "equipamentos/cadastrar",
         name: "Equipamentos > Cadastrar",
-        component: CadastrarEquipamento,
+        component: CadastrarEquipamento
       },
       {
         path: "equipamentos/alterar/:id",
         name: "Equipamentos > Alterar",
-        component: CadastrarEquipamento,
+        component: CadastrarEquipamento
       },
       {
         path: "equipamentos/alterar",
         component: CadastrarComponente,
         redirect: "equipamentos/cadastrar"
       },
+      {
+        path: "localizacoes",
+        name: "Localizações",
+        component: ListarLocalizacao
+      },
+      {
+        path: "localizacoes/cadastrar",
+        name: "Localizações > Cadastrar",
+        component: CadastrarLocalizacao
+      },
+      {
+        path: "localizacoes/alterar/:id",
+        name: "Localizações > Alterar",
+        component: CadastrarLocalizacao
+      },
+      {
+        path: "localizacoes/alterar",
+        component: CadastrarLocalizacao,
+        redirect: "localizacoes/cadastrar"
+      }
     ]
   },
   { path: "*", component: NotFound }

@@ -38,6 +38,20 @@
                     >
                   </b-form-select>
                 </div>
+                <div class="col-md-3">
+                  <label for="status">Localização </label>
+                  <b-form-select required v-model="componente.localizacao.id">
+                    <b-form-select-option disabled value=""
+                      >Selecione uma Localização:</b-form-select-option
+                    >
+                    <b-form-select-option
+                      v-for="localizacao in localizacoes"
+                      :key="localizacao.id"
+                      :value="localizacao.id"
+                      >{{'SALA ' + localizacao.sala + ' - PRÉDIO ' +  localizacao.predio }}</b-form-select-option
+                    >
+                  </b-form-select>
+                </div>
               </div>
 
               <router-link to="/componentes">

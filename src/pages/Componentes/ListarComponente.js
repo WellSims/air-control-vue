@@ -6,6 +6,8 @@ import { BButton } from "bootstrap-vue";
 const componenteColumns = [
   { key: "id", label: "ID" },
   { key: "nome", label: "Nome" },
+  { key: "localizacao.sala", label: "Sala"},
+  { key: "localizacao.predio", label: "Prédio"},
   { key: "status", label: "Status" },
   { key: "acoes", label: "Ações" }
 ];

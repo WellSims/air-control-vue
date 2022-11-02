@@ -10,6 +10,7 @@ export default {
   },
 
   created() {
+    this.listarLocalizacoes();
     if (this.id) {
       this.obter(this.id);
     }
@@ -42,16 +43,29 @@ export default {
     atualizar() {
       const payload = {
         componenteId: this.id,
-        componente: this.componente
+        componente: {
+          nome: this.componente.nome,
+          status: this.componente.status,
+          localizacao: {
+            id: this.componente.localizacao.id
+          }
+        }
       };
       return this.ActionAtualizarComponente(payload).then(res =>
         console.log(res.data)
       );
-    }
+    },
+    ...mapActions("LocalizacaoService", ["ActionListarLocalizacao"]),
+    listarLocalizacoes() {
+      return this.ActionListarLocalizacao().then(
+        res => (this.localizacoes = res.data)
+      );
+    },
   },
 
   data() {
     return {
+      localizacoes:[],
       componente: new Componente(),
       id: this.$route.params.id
     };
