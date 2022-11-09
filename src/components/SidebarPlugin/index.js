@@ -1,6 +1,6 @@
 import Sidebar from './SideBar.vue'
 import SidebarLink from './SidebarLink.vue'
-
+import { BIcon } from 'bootstrap-vue'
 const SidebarStore = {
   showSidebar: false,
   sidebarLinks: [
@@ -33,6 +33,7 @@ const SidebarPlugin = {
     })
     Vue.component('side-bar', Sidebar)
     Vue.component('sidebar-link', SidebarLink)
+    Vue.component('b-icon', BIcon)
   }
 }
 

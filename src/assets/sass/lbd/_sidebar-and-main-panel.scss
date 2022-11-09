@@ -132,16 +132,8 @@ body > .navbar-collapse {
         }
       }
 
-      &:hover .nav-link {
-        background: rgba(255, 255, 255, 0.13);
-        opacity: 1;
-      }
 
-      &.active .nav-link {
-        color: $white-color;
-        opacity: 1;
-        background: rgba(255, 255, 255, 0.23);
-      }
+
 
       &.separator {
         margin: 15px 0;

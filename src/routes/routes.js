@@ -21,12 +21,15 @@ import CadastrarEquipamento from "src/pages/Equipamentos/CadastrarEquipamento.vu
 import ListarLocalizacao from "src/pages/Localizacoes/ListarLocalizacao.vue";
 import CadastrarLocalizacao from "src/pages/Localizacoes/CadastrarLocalizacao.vue";
 
+import ListarEquipamentoAgenda from "src/pages/Equipamentos/AgendasEquipamento/ListarEquipamentoAgenda.vue";
+
 const routes = [
   {
     path: "/",
     component: DashboardLayout,
     redirect: "/componentes",
     children: [
+      //ROTAS DE COMPONENTES
       {
         path: "componentes",
         name: "Componentes",
@@ -47,6 +50,8 @@ const routes = [
         component: CadastrarComponente,
         redirect: "componentes/cadastrar"
       },
+
+      //ROTAS DE EQUIPAMENTOS
       {
         path: "equipamentos",
         component: ListarEquipamento,
@@ -67,6 +72,15 @@ const routes = [
         component: CadastrarComponente,
         redirect: "equipamentos/cadastrar"
       },
+
+      //ROTA DE AGENDAS É UM SUB-RECURSO DE EQUIPAMENTOS
+      {
+        path: "equipamentos/:id/agendas",
+        name: "Equipamentos > Equipamento > Agendas",
+        component: ListarEquipamentoAgenda
+      },
+
+      //ROTAS DE LOCALIZAÇÕES
       {
         path: "localizacoes",
         name: "Localizações",
@@ -78,7 +92,7 @@ const routes = [
         component: CadastrarLocalizacao
       },
       {
-        path: "localizacoes/alterar/:id",
+        path: "localizacoes/alterar/:equipamentoId",
         name: "Localizações > Alterar",
         component: CadastrarLocalizacao
       },
