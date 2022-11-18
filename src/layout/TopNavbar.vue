@@ -61,10 +61,13 @@
               Log out
             </a>
           </li> -->
-          <base-dropdown title="Administrador" icon="nc-icon nc-single-02">
+          <base-dropdown
+            :title="$store.state.DashboardLayout.authUsuario.login"
+            icon="nc-icon nc-single-02"
+          >
             <a class="dropdown-item" href="#">Editar perfil</a>
             <a class="dropdown-item" href="#">Configurações</a>
-            <a class="dropdown-item" href="#">Sair</a>
+            <a class="dropdown-item" style="cursor: pointer;" @click="logoff()">Sair</a>
             <!-- <a class="dropdown-item" href="#">Another action</a>
             <a class="dropdown-item" href="#">Something</a>
             <div class="divider"></div>
@@ -76,6 +79,7 @@
   </nav>
 </template>
 <script>
+import { mapActions } from "vuex";
 export default {
   computed: {
     routeName() {
@@ -83,12 +87,26 @@ export default {
       return this.capitalizeFirstLetter(name);
     }
   },
+  created() {
+    this.findAuthUsuario();
+  },
   data() {
     return {
       activeNotifications: false
     };
   },
   methods: {
+    ...mapActions("DashboardLayout", ["ActionAuthUsuario"]),
+    findAuthUsuario() {
+      const usuario = window.localStorage.getItem("authUsuario");
+      if (usuario) {
+        this.ActionAuthUsuario(JSON.parse(usuario));
+      }
+    },
+    logoff() {
+      this.ActionAuthUsuario({});
+      this.$router.push("/login");
+    },
     capitalizeFirstLetter(string) {
       return string.charAt(0).toUpperCase() + string.slice(1);
     },

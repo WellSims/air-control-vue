@@ -24,7 +24,6 @@
                   :per-page="9"
                   hover
                   bordered
-                  fixed
                   striped
                   head-variant="dark"
                   :items="componente.data"

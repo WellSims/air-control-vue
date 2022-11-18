@@ -25,7 +25,6 @@
                   :current-page="currentPage"
                   :per-page="9"
                   bordered
-                  fixed
                   hover
                   striped
                   head-variant="dark"

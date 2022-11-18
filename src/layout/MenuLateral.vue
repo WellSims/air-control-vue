@@ -52,13 +52,27 @@
       <i class="nc-icon  nc-pin-3"></i>
       <p>Localização</p>
     </sidebar-link>
-    <sidebar-link to="/componentes">
+    <sidebar-link to="/componentes" :link="{
+        children: [
+          {
+            icon: 'nc-icon nc-circle-09',
+            name: 'Usuário',
+            path: '/localizacoes/cadastrar'
+          },
+          {
+            icon: 'nc-icon nc-key-25',
+            name: 'Permissões',
+            path: '/localizacoes/cadastrar'
+          },
+          {
+            icon: 'nc-icon nc-vector',
+            name: 'Grupos',
+            path: '/localizacoes/cadastrar'
+          }
+        ]
+      }">
       <i class="nc-icon nc-lock-circle-open"></i>
-      <p>Permissões</p>
-    </sidebar-link>
-    <sidebar-link to="/componentes">
-      <i class="nc-icon nc-circle-09"></i>
-      <p>Usuários</p>
+      <p>Acesso</p>
     </sidebar-link>
   </side-bar>
 </template>

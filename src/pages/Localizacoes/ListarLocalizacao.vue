@@ -21,7 +21,7 @@
               <div>
                 <b-table
                   bordered
-                  fixed
+
                   :current-page="currentPage"
                   :per-page="9"
                   hover

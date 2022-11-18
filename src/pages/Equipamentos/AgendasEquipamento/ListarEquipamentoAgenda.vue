@@ -156,7 +156,6 @@
                   hover
                   striped
                   bordered
-                  fixed
                   head-variant="dark"
                   :items="agendas.data"
                   :fields="agendas.columns"

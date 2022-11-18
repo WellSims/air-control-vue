@@ -22,13 +22,19 @@ import ListarLocalizacao from "src/pages/Localizacoes/ListarLocalizacao.vue";
 import CadastrarLocalizacao from "src/pages/Localizacoes/CadastrarLocalizacao.vue";
 
 import ListarEquipamentoAgenda from "src/pages/Equipamentos/AgendasEquipamento/ListarEquipamentoAgenda.vue";
+import Login from "src/pages/Login/Login.vue";
 
 const routes = [
   {
     path: "/",
     component: DashboardLayout,
-    redirect: "/componentes",
+    redirect: "/login",
     children: [
+      {
+        path: "login",
+        name: "Login",
+        component: Login
+      },
       //ROTAS DE COMPONENTES
       {
         path: "componentes",

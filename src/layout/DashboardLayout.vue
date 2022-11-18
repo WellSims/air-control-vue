@@ -1,16 +1,19 @@
 <template>
   <div class="wrapper">
-    <menu-lateral></menu-lateral>
-    <div class="main-panel">
-      <top-navbar></top-navbar>
+    <menu-lateral v-if="!$store.state.DashboardLayout.isLogin"></menu-lateral>
+    <div class="main-panel" :style="$store.state.DashboardLayout.isLogin? 'width:100%' : ''">
+      <top-navbar v-if="!$store.state.DashboardLayout.isLogin"></top-navbar>
 
       <dashboard-content @click="toggleSidebar"> </dashboard-content>
 
-      <content-footer></content-footer>
+      <content-footer
+        v-if="!$store.state.DashboardLayout.isLogin"
+      ></content-footer>
     </div>
   </div>
 </template>
-<style lang="scss"></style>
+<style lang="scss">
+</style>
 <script>
 import MenuLateral from "./MenuLateral";
 import TopNavbar from "./TopNavbar.vue";
