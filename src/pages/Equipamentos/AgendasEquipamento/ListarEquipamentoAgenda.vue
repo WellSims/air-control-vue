@@ -83,6 +83,8 @@
               body-classes="table-full-width table-responsive"
             >
               <b-modal
+                okTitle="Salvar"
+                cancelTitle="Fechar"
                 @ok="handleOk"
                 @show="resetModal"
                 @hidden="resetModal"
@@ -113,6 +115,7 @@
                     >
                   </b-form-select>
                   <b-form-group
+                    style="margin-top:7px"
                     :state="horarioState"
                     label="Horário"
                     label-for="horario-input"
@@ -152,7 +155,7 @@
               <div>
                 <b-table
                   :current-page="currentPage"
-                  :per-page="6"
+                  :per-page="perPage"
                   hover
                   striped
                   bordered
@@ -186,13 +189,30 @@
                     ><b-icon icon="trash-fill"></b-icon
                   ></b-button>
                 </template> -->
+                  <template #cell(acoes)="row">
+                    <b-button
+                      title="Editar"
+                      size="sm"
+                      :name="row"
+                      class="btn btn-primary btn-fill"
+                      style="margin-right:5px;"
+                      ><b-icon icon="pencil-square"></b-icon
+                    ></b-button>
+                    <b-button
+                      title="Remover"
+                      size="sm"
+                      :name="row"
+                      class="btn btn-danger btn-fill"
+                      ><b-icon icon="trash-fill"></b-icon
+                    ></b-button>
+                  </template>
                 </b-table>
                 <b-pagination
                   pills
                   align="center"
                   v-model="currentPage"
                   :total-rows="this.agendas.data.length"
-                  :per-page="10"
+                  :per-page="perPage"
                   class="my-0"
                 ></b-pagination>
               </div>

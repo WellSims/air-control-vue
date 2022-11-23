@@ -50,13 +50,13 @@
       }"
     >
       <i class="nc-icon  nc-pin-3"></i>
-      <p>Localização</p>
+      <p>Localizações</p>
     </sidebar-link>
     <sidebar-link to="/componentes" :link="{
         children: [
           {
             icon: 'nc-icon nc-circle-09',
-            name: 'Usuário',
+            name: 'Usuários',
             path: '/localizacoes/cadastrar'
           },
           {

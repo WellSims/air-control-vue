@@ -9,7 +9,8 @@ const agendaColumns = [
   { key: "id", label: "ID" },
   { key: "diaSemana", label: "Dia da Semana" },
   { key: "horario", label: "Horário" },
-  { key: "comando", label: "Comando" }
+  { key: "comando", label: "Comando" },
+  { key: "acoes", label: "Ações" },
 ];
 
 const agendaData = [];
@@ -23,10 +24,24 @@ export default {
   },
 
   methods: {
+    concatenaDia(diasSemana) {
+      //console.log(diasSemana[0].diaSemana);
+
+      for (var i = 0; i < diasSemana.length; i++) {
+        if (
+          diasSemana[i].diaSemana != "SÁBADO" &&
+          diasSemana[i].diaSemana != "DOMINGO"
+        ) {
+          diasSemana[i].diaSemana = diasSemana[i].diaSemana + "-FEIRA";
+        }
+      }
+      return diasSemana;
+    },
+
     ...mapActions("AgendaService", ["ActionListarAgenda"]),
     listar(equipamentoId) {
       return this.ActionListarAgenda(equipamentoId).then(
-        res => (this.agendas.data = res.data)
+        res => (this.agendas.data = this.concatenaDia(res.data))
       );
     },
 
@@ -36,9 +51,12 @@ export default {
         equipamentoId: equipamentoId,
         agenda: agenda
       };
-      return this.ActionAdicionarAgenda(payload).then(res =>
-        this.agendas.data.push(res.data)
-      );
+      return this.ActionAdicionarAgenda(payload).then(res => {
+        res.data.diaSemana != "SÁBADO" && res.data.diaSemana != "DOMINGO"
+          ? (res.data.diaSemana = res.data.diaSemana + "-FEIRA")
+          : "",
+          this.agendas.data.push(res.data);
+      });
     },
 
     ...mapActions("EquipamentoService", ["ActionObterEquipamento"]),
@@ -110,6 +128,7 @@ export default {
 
   data() {
     return {
+      perPage : 6,
       diaSemanaState: null,
       horarioState: null,
       comandoState: null,
@@ -132,8 +151,8 @@ export default {
         { value: "QUINTA", text: "QUINTA-FEIRA" },
         { value: "SEXTA", text: "SEXTA-FEIRA" },
         { value: "SÁBADO", text: "SÁBADO" },
-        { value: "DOMINGO", text: "DOMINGO" },
-      ],
+        { value: "DOMINGO", text: "DOMINGO" }
+      ]
     };
   }
 };
