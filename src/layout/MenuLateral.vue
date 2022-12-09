@@ -47,27 +47,26 @@
             path: '/localizacoes/cadastrar'
           }
         ]
-      }"
-    >
+      }">
       <i class="nc-icon  nc-pin-3"></i>
       <p>Localizações</p>
     </sidebar-link>
-    <sidebar-link to="/componentes" :link="{
+    <sidebar-link to="/" :link="{
         children: [
           {
             icon: 'nc-icon nc-circle-09',
             name: 'Usuários',
-            path: '/localizacoes/cadastrar'
+            path: ''
           },
           {
             icon: 'nc-icon nc-key-25',
             name: 'Permissões',
-            path: '/localizacoes/cadastrar'
+            path: ''
           },
           {
             icon: 'nc-icon nc-vector',
             name: 'Grupos',
-            path: '/localizacoes/cadastrar'
+            path: ''
           }
         ]
       }">

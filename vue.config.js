@@ -1,5 +1,6 @@
 const path = require("path");
 const webpack = require("webpack");
+const fs = require('fs');
 
 function resolveSrc(_path) {
   return path.join(__dirname, _path);
@@ -7,7 +8,14 @@ function resolveSrc(_path) {
 
 module.exports = {
   devServer: {
-    https: true
+    open: process.platform === 'darwin',
+    host: '0.0.0.0',
+    port: 8080,
+    https: {
+      key: fs.readFileSync('.certs/key.pem'),
+      cert: fs.readFileSync('.certs/cert.pem'),
+    },
+    hotOnly: false,
   },
   lintOnSave: false,
   configureWebpack: {

@@ -5,14 +5,16 @@
         <div class="col-12">
           <card>
             <div slot="header" class="row">
-              <div class="col-11">
+              <div class="col-10">
                 <h4 slot="header" class="card-title">Componentes</h4>
               </div>
+              <div class="col-2">
               <router-link to="/componentes/cadastrar">
                 <button class="btn btn-primary btn-fill float-right">
                   Cadastrar
                 </button>
               </router-link>
+            </div>
             </div>
             <card
               class="strpied-tabled-with-hover align-items-center"
