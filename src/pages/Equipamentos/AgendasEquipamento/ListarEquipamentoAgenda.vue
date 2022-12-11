@@ -68,15 +68,17 @@
           ></card>
           <card>
             <div slot="header" class="row">
-              <div class="col-11">
+              <div class="col-10">
                 <h4 class="card-title">Agendas</h4>
               </div>
-              <b-button
-                v-b-modal.modal-prevent-closing
-                class="btn btn-primary btn-fill float-right"
-              >
-                Cadastrar
-              </b-button>
+              <div>
+                <b-button
+                  v-b-modal.modal-prevent-closing
+                  class="btn btn-primary btn-fill float-right"
+                >
+                  Cadastrar
+                </b-button>
+              </div>
             </div>
             <card
               class="strpied-tabled-with-hover align-items-center"
