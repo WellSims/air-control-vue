@@ -33,7 +33,7 @@ build-prd-job:       # This job runs in the build stage, which runs first.
   script:
     - echo "build-prd-job... "
     - echo "build-prd-job. "
-    only:
+  only:
     - main
 
 # unit-test-job:   # This job runs in the test stage.
