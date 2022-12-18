@@ -34,7 +34,7 @@ build-prd-job:       # This job runs in the build stage, which runs first.
     - echo "build-prd-job... "
     - echo "build-prd-job. "
   only:
-    - main
+    - master
 
 # unit-test-job:   # This job runs in the test stage.
 #   stage: test    # It only starts when the job in the build stage completes successfully.
