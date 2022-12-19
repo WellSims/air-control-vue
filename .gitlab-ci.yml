@@ -16,25 +16,55 @@
 # This specific template is located at:
 # https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Getting-Started.gitlab-ci.yml
 
-stages:          # List of stages for jobs, and their order of execution
-  - deploy-dev
-  - deploy-prd
+stages:
 
-deploy-dev-job:       # This job runs in the build stage, which runs first.
-  stage: deploy-dev
-  script:
-    - echo "build-dev-job... "
-    - echo "build-dev-job. "
-  only:
-    - develop
+ - build-push
+ - deploy-prd
+ 
+image: docker:19.03.12
+variables:
+ DOCKER_HOST: tcp://docker:2375/
+ DOCKER_TLS_CERTDIR: ""
+ GCP_PROJECT_NAME: tcm-prd
+ REGISTRY_HOSTNAME: gcr.io/${GCP_PROJECT_NAME}
+ DOCKER_IMAGE_NAME: api-prd-wp
+services:
+ - docker:19.03.12-dind
 
-deploy-prd-job:       # This job runs in the build stage, which runs first.
-  stage: deploy-prd
-  script:
-    - echo "build-prd-job... "
-    - echo "build-prd-job. "
-  only:
-    - main
+build-push:
+ stage: build-push
+ before_script:
+   - docker info
+   - echo "$SERVICE_ACCOUNT_KEY" > key.json
+   - docker login -u _json_key --password-stdin https://gcr.io < key.json
+ script:
+   - docker build --tag $REGISTRY_HOSTNAME/$DOCKER_IMAGE_NAME:$CI_COMMIT_SHORT_SHA .
+   - docker push $REGISTRY_HOSTNAME/$DOCKER_IMAGE_NAME:$CI_COMMIT_SHORT_SHA
+ rules:
+   - when: manual
+
+
+
+deploy-prd:
+ stage: deploy-prd
+ image: aquamars00/gcloud-with-kubectl
+ variables:
+  GCP_PROJECT_NAME: tcm-prd
+  GKE_CLUSTER_NAME: gke-tcmba-production
+  APP: api
+  NAMESPACE: api
+  APP_URL: $APP.tcm.ba.gov.br
+  APP_PORT: 8080
+
+  
+ before_script:
+   - apk --update add gettext
+
+ script:
+# Authenticate with GKE
+   - echo "$SERVICE_ACCOUNT_KEY" > key.json
+   - gcloud auth activate-service-account --key-file=key.json
+
 
 # unit-test-job:   # This job runs in the test stage.
 #   stage: test    # It only starts when the job in the build stage completes successfully.
