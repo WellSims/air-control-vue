@@ -20,7 +20,7 @@ stages:          # List of stages for jobs, and their order of execution
   - build-dev
   - build-prd
 
-build-dev-job:       # This job runs in the build stage, which runs first.
+deploy-dev-job:       # This job runs in the build stage, which runs first.
   stage: build-dev
   script:
     - echo "build-dev-job... "
@@ -28,7 +28,7 @@ build-dev-job:       # This job runs in the build stage, which runs first.
   only:
     - develop
 
-build-prd-job:       # This job runs in the build stage, which runs first.
+deploy-prd-job:       # This job runs in the build stage, which runs first.
   stage: build-prd
   script:
     - echo "build-prd-job... "
