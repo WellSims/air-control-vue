@@ -27,10 +27,10 @@
               </div>
               <div class="row">
                 <div class="col-md-3">
-                  <label for="status">Componente </label>
+                  <label for="status">Serial </label>
                   <b-form-select required v-model="equipamento.componente.id">
                     <b-form-select-option disabled value=""
-                      >Selecione um Componente:</b-form-select-option
+                      >Selecione um Componente (Serial):</b-form-select-option
                     >
                     <b-form-select-option
                       v-for="componente in componentes"

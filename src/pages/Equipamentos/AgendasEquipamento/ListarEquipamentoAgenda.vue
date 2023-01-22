@@ -42,7 +42,7 @@
               </div>
               <div class="row">
                 <div class="col-6">
-                  <label for="nome">Id do Componente</label>
+                  <label for="nome">Serial ID</label>
                   <input
                     disabled
                     type="number"
@@ -54,7 +54,7 @@
                   />
                 </div>
                 <div class="col-6">
-                  <label for="nome">Nome do Componente</label>
+                  <label for="nome">Nome do Serial</label>
                   <input
                     disabled
                     :placeholder="equipamento.componente.nome"
